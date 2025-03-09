@@ -71,3 +71,9 @@ Kelnik/api/docker/entrypoint.sh
 ```
 Kelnik/api/public/.htaccess
 ```
+
+
+Есть логика сохранения состояния, даже если случайно обновить страницу с заполенными данными, они останутся в полях:
+```
+Kelnik/frontend/src/components/CreateArticle.vue
+```
