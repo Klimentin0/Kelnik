@@ -6,9 +6,9 @@ import EditArticle from '@/components/EditArticle.vue'
 
 const routes = [
   { path: '/', name: 'ArticleList', component: ArticleList },
-  { path: '/articles/create', name: 'CreateArticle', component: CreateArticle },
-  { path: '/articles/:id', name: 'ArticleDetail', component: ArticleDetail },
-  { path: '/articles/edit/:id', name: 'EditArticle', component: EditArticle },
+  { path: '/article/new', name: 'CreateArticle', component: CreateArticle },
+  { path: '/article/:id', name: 'ArticleDetail', component: ArticleDetail },
+  { path: '/article/edit/:id', name: 'EditArticle', component: EditArticle },
 ]
 
 const router = createRouter({

@@ -7,6 +7,7 @@ use App\Http\Requests\Articles\CreateArticleRequest;
 use App\Http\Requests\Articles\UpdateArticleRequest;
 use App\Domain\Articles\Services\ArticleService;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
@@ -15,11 +16,19 @@ class ArticleController extends Controller
     ) {
     }
 
-    public function index(): JsonResponse
+    public function index(Request $request): JsonResponse
     {
         try {
-            $articles = $this->articleService->getAll();
-            return response()->json(['data' => $articles]);
+            $perPage = $request->input('per_page', 5);
+            $page = $request->input('page', 1);
+
+            $articles = $this->articleService->getPaginated(
+                perPage: $perPage,
+                page: $page
+            );
+
+            return response()->json($articles);
+
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()], 500);
         }

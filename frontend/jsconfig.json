@@ -4,15 +4,20 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "module": "ESNext",
-    "target": "ESNext",
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true,
+    "jsx": "preserve",
     "moduleResolution": "node",
     "allowJs": true,
-    "checkJs": false,
-    "strict": false,
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "forceConsistentCasingInFileNames": true,
+    "useDefineForClassFields": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "lib": ["esnext", "dom", "dom.iterable"]
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*.js", "src/**/*.vue", "src/**/*.json"],
   "exclude": ["node_modules", "dist", "**/__tests__/*"]
 }

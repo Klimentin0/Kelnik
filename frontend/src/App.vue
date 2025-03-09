@@ -1,8 +1,10 @@
 <template>
   <div id="app">
+    <img src="https://cdn.prod.website-files.com/5f9bca5bacf2ceed0506484d/5fa00e9b9031c60c8ad9cc48_Logo.svg" loading="lazy" alt="" class="logo">
+    <h1>Кельник Студиос</h1>
     <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/articles/create">New Article</router-link>
+      <router-link to="/">Статьи</router-link> |
+      <router-link to="/article/new">Новая статья</router-link>
     </nav>
     <router-view />
   </div>

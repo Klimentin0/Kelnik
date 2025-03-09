@@ -1,28 +1,28 @@
 <template>
   <div class="form-container">
-    <h1>Create New Article</h1>
+    <h1>Новая статья</h1>
     <form @submit.prevent="submitForm">
       <div class="form-group">
-        <label>Title:</label>
+        <label>Название:</label>
         <input v-model="form.title" required />
       </div>
 
       <div class="form-group">
-        <label>Author:</label>
+        <label>Автор:</label>
         <input v-model="form.author" />
       </div>
 
       <div class="form-group">
-        <label>Brief:</label>
+        <label>Краткое содержание:</label>
         <textarea v-model="form.brief" required maxlength="500" />
       </div>
 
       <div class="form-group">
-        <label>Full Text:</label>
+        <label>Полный текст:</label>
         <textarea v-model="form.full_text" required rows="6" />
       </div>
 
-      <button type="submit">Create Article</button>
+      <button type="submit">Создать статью</button>
     </form>
   </div>
 </template>
@@ -44,8 +44,8 @@ export default {
   methods: {
     async submitForm() {
       try {
-        const response = await axios.post('/v1/articles', this.form)
-        this.$router.push(`/articles/${response.data.data.id}`)
+        const response = await axios.post('api/v1/article', this.form)
+        this.$router.push(`/article/${response.data.data.id}`)
       } catch (error) {
         console.error('Error creating article:', error)
       }

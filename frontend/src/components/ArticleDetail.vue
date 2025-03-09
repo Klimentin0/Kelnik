@@ -10,13 +10,13 @@
         :to="{ name: 'EditArticle', params: { id: article.id } }"
         class="edit-button"
       >
-        Edit
+        Править
       </router-link>
-      <button @click="deleteArticle" class="delete-button">Delete</button>
+      <button @click="deleteArticle" class="delete-button">Удалить</button>
     </div>
   </div>
   <div v-else>
-    Loading...
+    ЗАГРУЗКА
   </div>
 </template>
 
@@ -31,7 +31,7 @@ export default {
   },
   async created() {
     try {
-      const response = await axios.get(`/v1/articles/${this.$route.params.id}`)
+      const response = await axios.get(`api/v1/article/${this.$route.params.id}`)
       this.article = response.data.data
     } catch (error) {
       console.error('Error fetching article:', error)
@@ -41,7 +41,7 @@ export default {
   methods: {
     async deleteArticle() {
       try {
-        await axios.delete(`/v1/articles/${this.$route.params.id}`)
+        await axios.delete(`api/v1/article/${this.$route.params.id}`)
         this.$router.push('/')
       } catch (error) {
         console.error('Error deleting article:', error)

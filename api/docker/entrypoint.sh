@@ -14,7 +14,7 @@ echo "Running migrations..."
 php artisan migrate --force
 # php artisan config:clear
 # php artisan cache:clear
-
+php artisan db:seed --class=ArticleSeeder
 # Start Apache in the foreground
 echo "Starting Apache..."
 exec apache2-foreground
